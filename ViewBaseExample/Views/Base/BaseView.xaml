@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="ViewBaseExample.Views.Base.BaseView"
+    xmlns:converters="clr-namespace:ViewBaseExample.Converters;assembly=ViewBaseExample"
+    x:Name="_parent">
+    <ContentPage.Resources>
+        <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- CONTENT -->
+            <ContentPresenter HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                              Content="{Binding Path=ViewContent, Source={x:Reference _parent}}" 
+                              IsVisible="{Binding Bussy, Mode=OneWay, Converter={StaticResource InverseBoolConverter}}"/>
+
+            <!-- BUSSY INDICATOR -->
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding Bussy, Mode=OneWay}">
+                <ActivityIndicator HorizontalOptions="Center" VerticalOptions="Center" IsRunning="{Binding Bussy, Mode=OneWay}"/>
+                <Label HorizontalOptions="Center" Text="{Binding BussyText, Mode=OneWay}" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewBase:BaseView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:viewBase="clr-namespace:ViewBaseExample.Views.Base;assembly=ViewBaseExample"
+    x:Class="ViewBaseExample.Views.FirstView">
+    <viewBase:BaseView.ViewContent>
+         
+
+            <!-- CONTENT -->
+            <Label Text="This is the first view" VerticalOptions="Center" HorizontalOptions="Center" />
+
+    </viewBase:BaseView.ViewContent>
+</viewBase:BaseView>
+
+
